@@ -9,10 +9,10 @@ public class AmazonHomePage {
 
 	private WebDriver driver;
 	
-	@FindBy(name="field-keywords")
+	@FindBy(id="twotabsearchtextbox")
 	private WebElement keywordsField;
 	
-	@FindBy(css="#navGoButton input")
+	@FindBy(css=".nav-input")
 	private WebElement goButton;
 	
 	public AmazonHomePage(WebDriver driver) {
