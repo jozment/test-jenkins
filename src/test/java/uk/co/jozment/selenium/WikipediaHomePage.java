@@ -14,9 +14,17 @@ public class WikipediaHomePage {
 	
 	@FindBy(id="searchButton")
 	private WebElement goButton;
+
+	@FindBy(id="pt-login")
+    private WebElement loginLink;
 	
 	public WikipediaHomePage(WebDriver driver) {
 		this.driver = driver;
+	}
+
+	public static WikipediaHomePage navigateTo(WebDriver driver) {
+		driver.get("https://en.wikipedia.org/");
+		return PageFactory.initElements(driver, WikipediaHomePage.class);
 	}
 	
 	public WikipediaArticlePage searchFor(String searchTerm) {
@@ -26,8 +34,9 @@ public class WikipediaHomePage {
 		return PageFactory.initElements(driver, WikipediaArticlePage.class);
 	}
 
-	public static WikipediaHomePage navigateTo(WebDriver driver) {
-		driver.get("https://en.wikipedia.org/");
-		return PageFactory.initElements(driver, WikipediaHomePage.class);
-	}
+    public WikipediaLoginPage clickLoginLink(WebDriver driver) {
+        loginLink.click();
+
+        return PageFactory.initElements(driver, WikipediaLoginPage.class);
+    }
 }
