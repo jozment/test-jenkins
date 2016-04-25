@@ -23,10 +23,15 @@ public class WikipediaSearchTest {
 		driver.quit();
 	}
 	
-	@Test public void
-	search_amazon() {
+	@Test public void search_wikipedia() {
 		WikipediaHomePage homePage = WikipediaHomePage.navigateTo(driver);
 		WikipediaArticlePage resultsPage = homePage.searchFor("george washington");
 		assertThat(resultsPage.getArticleTitle(), containsString("George Washington"));
 	}
+
+	@Test public void log_in_to_wikipedia() {
+		WikipediaLoginPage loginPage = WikipediaLoginPage.navigateTo(driver);
+		loginPage.login("The.ether.eel", "test-jenkins");
+        assertThat(loginPage.getLoginHeaderText(), containsString("The.ether.eel"));
+    }
 }
