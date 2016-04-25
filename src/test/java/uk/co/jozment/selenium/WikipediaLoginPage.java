@@ -34,7 +34,7 @@ public class WikipediaLoginPage {
         usernameField.clear();
         usernameField.sendKeys(username);
         passwordField.sendKeys(password);
-        loginButton.click();
+        passwordField.submit();
     }
 
     public String getLoginHeaderText() {
