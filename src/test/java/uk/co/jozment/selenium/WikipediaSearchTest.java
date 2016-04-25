@@ -8,13 +8,16 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class WikipediaSearchTest {
 
 	private FirefoxDriver driver;
 
 	@Before
 	public void setupSelenium() {
-		driver = new FirefoxDriver();
+        driver = new FirefoxDriver();
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 	}
 	
 	@After
